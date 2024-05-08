@@ -19,6 +19,8 @@ terraform {
       version = ">= 4, < 6"
     }
   }
+
+  required_version = ">= 1.5.0"
 }
 
 locals {
@@ -92,7 +94,7 @@ resource "aws_cloudwatch_metric_alarm" "alarms" {
 
   dimensions = {
     ClusterIdentifier = local.cluster_identifier,
-    NodeID            = each.value["node"]
+    NodeID            = title(lower(each.value["node"]))
   }
 
   comparison_operator = each.value["directionality"] == "high" ? "GreaterThanOrEqualToThreshold" : "LessThanOrEqualToThreshold"
