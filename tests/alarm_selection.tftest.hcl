@@ -3,7 +3,7 @@ mock_provider "aws" {}
 variables {
   redshift_cluster = {
     cluster_identifier = "test-001",
-    cluster_nodes      = [{ node_role = "LEADER" }, { node_role = "COMPUTE-0" }, { node_role = "COMPUTE-1" }]
+    number_of_nodes    = 2
   }
   low_priority_alarm                         = ["arn:aws:sns:us-east-1:111111111111:alerts_low"]
   high_priority_alarm                        = ["arn:aws:sns:us-east-1:111111111111:alerts_high"]

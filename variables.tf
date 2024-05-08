@@ -15,7 +15,7 @@
 variable "redshift_cluster" {
   type = object({
     cluster_identifier = string
-    cluster_nodes      = list(object({ node_role = string }))
+    number_of_nodes    = number
   })
   description = "The redshift cluster to alarm."
 }
