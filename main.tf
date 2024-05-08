@@ -55,7 +55,7 @@ locals {
   high_priority_alarms = { for key, value in local.var_map : "high_${key}" => merge(value, { level = "high", value = value["high_value"] }) if value["high_value"] != null }
   alarms               = merge(local.low_priority_alarms, local.high_priority_alarms)
 
-  computed_redshift_nodes = toset(concat(["LEADER"], [ for i in range(var.redshift_cluster.number_of_nodes) : "COMPUTE-${i}"]))
+  computed_redshift_nodes = toset(concat(["LEADER"], [for i in range(var.redshift_cluster.number_of_nodes) : "COMPUTE-${i}"]))
 
   compute_node_alarms = [
     for node in local.computed_redshift_nodes :
