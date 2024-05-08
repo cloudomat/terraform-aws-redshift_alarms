@@ -1,3 +1,13 @@
+## 0.0.3
+
+BREAKING CHANGES:
+
+* We now require a number_of_nodes property on redshift_cluster instead of a cluster_nodes property
+
+ENHANCEMENTS:
+
+* Now compatible with clusters that have not yet been provisioned
+
 ## 0.0.2
 
 BUG FIXES:
